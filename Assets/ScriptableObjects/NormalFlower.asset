@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a8037d3ca3a7a4f96de821f7e79a95, type: 3}
+  m_Name: NormalFlower
+  m_EditorClassIdentifier: 
+  itemName: NormalFlower
+  icon: {fileID: -1971297970, guid: e8284c4269f9b39468094f7b8894f81c, type: 3}
+  itemPrefab: {fileID: 3491430132749459619, guid: f82e52f3ccff50048aec28062b706967, type: 3}
+  normalSprite: {fileID: -1971297970, guid: e8284c4269f9b39468094f7b8894f81c, type: 3}
+  decayedSprite: {fileID: -1007077172, guid: 537eb330717a70746993394e5f2cc8be, type: 3}
+  timeUntilDecay: 10
+  normalQuality: 100
+  decayedQuality: 50
+  hasDecayed: 0
+  quality: 100
