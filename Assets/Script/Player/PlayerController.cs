@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 2.6f; // Jump height.
     private Vector2 lastPosition; // last pos 
 
-    public Sprite jumpSprite; // Sprite that shows up when the character is not on the ground. [OPTIONAL]
+    private Animator anim;
+
 
     private Rigidbody2D body; // Variable for the RigidBody2D component.
     private SpriteRenderer sr; // Variable for the SpriteRenderer component.
@@ -27,51 +28,66 @@ public class PlayerController : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>(); // Setting the RigidBody2D component.
         sr = GetComponent<SpriteRenderer>(); // Setting the SpriteRenderer component.
-
+        anim = GetComponent<Animator>(); // Get the Animator component attached to this GameObject.
     }
 
     // Update() is called every frame.
     void Update()
     {
         jumpPressed = Input.GetKeyDown(KeyCode.Space);
-        APressed = Input.GetKey(KeyCode.A); 
-        DPressed = Input.GetKey(KeyCode.D); 
+        APressed = Input.GetKey(KeyCode.A);
+        DPressed = Input.GetKey(KeyCode.D);
 
+        // Handle game exit to main menu.
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LoadMainMenu(); // Call the function to load the main menu.
+        }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) LoadMainMenu(); // Load Main menu.
-
-
-
-
-        // Left/Right movement.
+        // Handle left/right movement.
         if (APressed)
         {
-            body.velocity = new Vector2(-runSpeed * Time.deltaTime, body.velocity.y); // Move left physics.
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z); // Rotating the character object to the left.
+            // Move left
+            body.velocity = new Vector2(-runSpeed, body.velocity.y); // Update the body's velocity to move left.
+            transform.eulerAngles = new Vector3(0, 180, 0); // Flip the character to face left.
+            anim.SetBool("isRunning", true); // Trigger the running animation.
         }
         else if (DPressed)
         {
-            body.velocity = new Vector2(runSpeed * Time.deltaTime, body.velocity.y); // Move right physics.
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z); // Rotating the character object to the right.
+            // Move right
+            body.velocity = new Vector2(runSpeed, body.velocity.y); // Update the body's velocity to move right.
+            transform.eulerAngles = new Vector3(0, 0, 0); // Flip the character to face right (default orientation).
+            anim.SetBool("isRunning", true); // Trigger the running animation.
         }
-        else body.velocity = new Vector2(0, body.velocity.y);
+        else
+        {
+            // No left/right movement
+            body.velocity = new Vector2(0, body.velocity.y); // Stop horizontal movement.
+            anim.SetBool("isRunning", false); // Stop the running animation.
+        }
 
-        //  =====================TODO GET RID OF DOUBLE JUMPING ==========
-        // Jumps.
+        // Handle jumping.
         if (jumpPressed && isGrounded)
         {
-
-            body.velocity = new Vector2(0, jumpForce); // Jump physics.
-
-
+            body.velocity = new Vector2(body.velocity.x, jumpForce);
+            anim.SetBool("isJumping", true); // Trigger the jumping animation
         }
-        lastPosition = gameObject.transform.position;
+        else if (!isGrounded)
+        {
+            anim.SetBool("isJumping", true);
+        }
+        else
+        {
+            anim.SetBool("isJumping", false);
+        }
 
+        // Track the last position of the player.
+        lastPosition = transform.position;
     }
 
 
 
-    
+
     void FixedUpdate()
     {
         

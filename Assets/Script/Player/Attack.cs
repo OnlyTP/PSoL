@@ -5,15 +5,20 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public float damage = 5f;
-    public float attackCooldown = 4f;
+    public float attackCooldown = 3f;
+    private Animator anim; 
 
     List<Enemy> targets = new List<Enemy>();
-
     bool readyToAttack = true;
+
+    void Start()
+    {
+        anim = GetComponentInParent<Animator>(); 
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             targets.Add(collision.gameObject.GetComponent<Enemy>());
         }
@@ -21,7 +26,7 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             targets.Remove(collision.gameObject.GetComponent<Enemy>());
         }
@@ -31,8 +36,11 @@ public class Attack : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            if (readyToAttack)
+            if (readyToAttack && targets.Count > 0)  // Check if there are enemies nearby
+            {
+                anim.SetTrigger("isAttacking");  // Trigger the attack animation
                 AttackEnemies();
+            }
         }
 
         damage = GetComponentInParent<PlayerStats>().damage;
@@ -40,9 +48,8 @@ public class Attack : MonoBehaviour
 
     private void AttackEnemies()
     {
-        for (int i = 0; i < targets.Count; i++)
+        foreach (Enemy e in targets)
         {
-            Enemy e = targets[i];
             e.Damage(damage);
         }
         readyToAttack = false;
@@ -52,5 +59,8 @@ public class Attack : MonoBehaviour
     private void ResetAttack()
     {
         readyToAttack = true;
+        anim.ResetTrigger("isAttacking");  // Reset the attack trigger
     }
+
 }
+

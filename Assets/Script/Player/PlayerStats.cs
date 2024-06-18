@@ -8,7 +8,10 @@ public class PlayerStats : MonoBehaviour
     public int currentHealth;
     public int damage;
     public int regenRate = 0;
-    public bool hasPotionEffect = false; 
+    public bool hasPotionEffect = false;
+
+    public Animator animator;
+
 
     public HealthBar healthBar;
     public PotionBar potionBar;
@@ -24,6 +27,7 @@ public class PlayerStats : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         gameManager = FindObjectOfType<GameManager>();
+        animator = GetComponent<Animator>();
 
         RegenHealth();
     }
@@ -49,8 +53,17 @@ public class PlayerStats : MonoBehaviour
     void Die()
     {
         Debug.Log("Player has died.");
-        gameManager.GameOver();
+        animator.SetTrigger("isDead");  // Trigger the death animation
+        StartCoroutine(WaitForDeathAnimation());
     }
+
+    IEnumerator WaitForDeathAnimation()
+    {
+        // Wait for the length of the death animation
+        yield return new WaitForSeconds(0.685f);  // Animation clip length is 0.683 seconds
+        gameManager.GameOver();  // Call GameOver method after the animation completes
+    }
+
 
     public void Heal(int healAmount)
     {
