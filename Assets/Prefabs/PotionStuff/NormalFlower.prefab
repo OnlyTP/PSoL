@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7334611224912140142}
   - component: {fileID: 1351892900701034047}
   - component: {fileID: 1062418949843025634}
-  - component: {fileID: 5833444342319012708}
+  - component: {fileID: 8529221080508605643}
   m_Layer: 7
   m_Name: NormalFlower
   m_TagString: Untagged
@@ -114,8 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToDecay: 1
   decayedPrefab: {fileID: 1857750493780550576, guid: 92329aaba29fa914ba889b86248396f4, type: 3}
---- !u!58 &5833444342319012708
-CircleCollider2D:
+--- !u!61 &8529221080508605643
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -143,9 +143,19 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.2, y: 3.88}
+    newSize: {x: 2.2, y: 3.88}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 6
+  m_Size: {x: 2.2, y: 3.88}
+  m_EdgeRadius: 0

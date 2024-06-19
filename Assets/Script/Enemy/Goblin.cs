@@ -18,6 +18,8 @@ public class Goblin : MonoBehaviour
         anim = GetComponent<Animator>();
         if (player == null)
             Debug.Log("Player Doesn't Have Tag");
+
+
     }
 
     private void Update()

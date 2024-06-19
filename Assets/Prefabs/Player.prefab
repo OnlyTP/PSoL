@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5253874655562431670}
   - component: {fileID: 3066111980284434092}
   - component: {fileID: 7392783048480193834}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Attacking Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   potionBar: {fileID: 0}
   gameManager: {fileID: 0}
-  targetCollider: {fileID: 8148848604435269175}
 --- !u!114 &7106342150116376554
 MonoBehaviour:
   m_ObjectHideFlags: 0

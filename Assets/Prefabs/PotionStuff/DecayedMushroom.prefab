@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7560075854216516603}
   - component: {fileID: 7247337738971482437}
   - component: {fileID: 6940259454092934928}
-  - component: {fileID: 652555567428138276}
   m_Layer: 7
   m_Name: DecayedMushroom
   m_TagString: Untagged
@@ -145,38 +144,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4, y: 3.64}
   m_EdgeRadius: 0
---- !u!58 &652555567428138276
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799064390690626749}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 6
