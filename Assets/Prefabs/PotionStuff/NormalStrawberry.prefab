@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.9510307, y: 5.3644605, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.45, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdfa9b585ad827499fe080fc4445687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDecay: 1
+  timeToDecay: 600
   decayedPrefab: {fileID: 5979576394491557303, guid: 8368b6ee8dcee694aa70c72ed617207b, type: 3}
 --- !u!61 &-5814342644595281575
 BoxCollider2D:

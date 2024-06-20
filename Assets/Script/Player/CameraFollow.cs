@@ -5,6 +5,8 @@ public class CameraFollow2D : MonoBehaviour
     public float xOffset = 0f;
     public float yOffset = 0f;
     public float minYPosition = 0f; // The minimum y position the camera can have
+    public float minXPosition = 0f;
+    public float maxXPosition = 100f;
 
     private void LateUpdate()
     {

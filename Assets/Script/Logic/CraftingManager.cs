@@ -25,6 +25,7 @@ public class CraftingManager : MonoBehaviour
 
     private void TryCraftPotion(System.Action craftAction)
     {
+        Debug.Log("Trying to craft potion...");
         if (!Player.playerStats.hasPotionEffect)
         {
             craftAction.Invoke();

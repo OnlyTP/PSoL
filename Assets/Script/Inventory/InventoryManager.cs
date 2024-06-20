@@ -27,6 +27,13 @@ public class InventoryManager : MonoBehaviour
     }
     void Start()
     {
+        itemsParent = GameObject.FindGameObjectWithTag("ItemsParent").transform;
+        
+
+        if (CarryOver.items.Count != 0)
+        {
+            items = CarryOver.items;
+        }
         // Ensure that the inventory UI is updated to reflect the current inventory state when the game starts.
         UpdateInventoryUI();
     }
@@ -90,5 +97,10 @@ public class InventoryManager : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        CarryOver.items = items;
     }
 }

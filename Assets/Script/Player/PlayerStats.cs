@@ -27,8 +27,19 @@ public class PlayerStats : MonoBehaviour
         {
             InvokeRepeating("RegenHealth", 3, 3);  // Every 3 seconds
         }
+
+        if (CarryOver.levelHealth != 0)
+        {
+            currentHealth = CarryOver.levelHealth;
+
+        }
     }
 
+
+    private void Update()
+    {
+        healthBar.SetHealth(currentHealth);
+    }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -96,5 +107,10 @@ public class PlayerStats : MonoBehaviour
         {
             Heal(regenRate);
         }
+    }
+
+    private void OnDisable()
+    {
+        CarryOver.levelHealth = currentHealth;
     }
 }
