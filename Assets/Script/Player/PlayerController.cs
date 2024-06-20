@@ -5,30 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float runSpeed = 1f; // Running speed.
-    public float jumpForce = 2.6f; // Jump height.
-    private Vector2 lastPosition; // last pos 
+    public float runSpeed = 1f; 
+    public float jumpForce = 2.6f; 
+    private Vector2 lastPosition;
 
     private Animator anim;
 
 
-    private Rigidbody2D body; // Variable for the RigidBody2D component.
-    private SpriteRenderer sr; // Variable for the SpriteRenderer component.
+    private Rigidbody2D body; 
+    private SpriteRenderer sr; 
 
-    public bool isGrounded; // Variable that will check if character is on the ground.
-    public GameObject groundCheckPoint; // The object through which the isGrounded check is performed.
-    public float groundCheckRadius; // isGrounded check radius.
-    public LayerMask groundLayer; // Layer wich the character can jump on.
+    public bool isGrounded; 
+    public GameObject groundCheckPoint;
+    public float groundCheckRadius; 
+    public LayerMask groundLayer; 
 
-    private bool jumpPressed = false; // Variable that will check is "Space" key is pressed.
-    private bool APressed = false; // Variable that will check is "A" key is pressed.
-    private bool DPressed = false; // Variable that will check is "D" key is pressed.
+    private bool jumpPressed = false; 
+    private bool APressed = false; 
+    private bool DPressed = false; 
 
     void Awake()
     {
-        body = GetComponent<Rigidbody2D>(); // Setting the RigidBody2D component.
-        sr = GetComponent<SpriteRenderer>(); // Setting the SpriteRenderer component.
-        anim = GetComponent<Animator>(); // Get the Animator component attached to this GameObject.
+        body = GetComponent<Rigidbody2D>(); 
+        sr = GetComponent<SpriteRenderer>(); 
+        anim = GetComponent<Animator>(); 
     }
 
     // Update() is called every frame.
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         // Handle game exit to main menu.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            LoadMainMenu(); // Call the function to load the main menu.
+            LoadMainMenu(); 
         }
 
         // Handle left/right movement.

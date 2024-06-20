@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 1178678872621917937}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.6, y: -2.7, z: -0.9601698}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.81, y: -4.08, z: -0.9601698}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -135,14 +135,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed77bef0dd4524544a7dd4a8087bd247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeAbovePlayerTillDivebomb: 5
-  flySpeed: 10
+  timeAbovePlayerTillDivebomb: 1
+  flySpeed: 0.517
   divebombSpeed: 5
   chaseRadius: 15
   divebombRadius: 5
-  heightAbovePlayerToHover: 5
-  explosionRadius: 10
-  damage: 20
+  heightAbovePlayerToHover: 4
+  explosionRadius: 6
+  damage: 10
   explosionEffect: {fileID: 3967715844912292697, guid: ea95e4a290d14814c980779597fd8ec2, type: 3}
 --- !u!212 &8483994376856729152
 SpriteRenderer:
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 24c460b97a52f14459f73789e9f1ecd6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -206,7 +206,7 @@ Animator:
   m_GameObject: {fileID: 1178678872621917937}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e1199fe4e1fc1d64e9c149e1a14ce753, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

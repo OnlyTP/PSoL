@@ -15,8 +15,8 @@ public class MainMenu : MonoBehaviour
     // Function to be called when the "Play" button is pressed
     public void PlayGame()
     {
-        // Load the game scene; replace "GameScene" with your actual game scene name
-        SceneManager.LoadScene("Level10");
+        CarryOver.ResetData();
+        SceneManager.LoadScene("Level1");
     }
 
    public void OpenLevelSelect()
@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
 
 
 
-    // Function to be called when the "Quit" button is pressed
+
     public void QuitGame()
     {
         // Quit the application

@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System;
+using System.Collections;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +30,26 @@ public class GameManager : MonoBehaviour
                 GameOver();
             }
         }
+
+        HandleEscapeKeyPress();
+    }
+
+    private void HandleEscapeKeyPress()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SaveProgress();
+            // Optionally add other logic for pausing the game or showing a pause menu
+            Debug.Log("Game paused and progress saved.");
+        }
+    }
+
+    private void SaveProgress()
+    {
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("UnlockedLevel", Mathf.Max(PlayerPrefs.GetInt("UnlockedLevel", 1), currentLevelIndex));
+        PlayerPrefs.Save();
+        Debug.Log("Progress saved: Level " + currentLevelIndex + " is now unlocked.");
     }
 
     void UpdateTimerDisplay(float timeToDisplay)
@@ -39,24 +61,21 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        //Debug.Log("Game Over Started");
-        gameOverPanel.SetActive(true); // Show the game over panel
-        //Debug.Log("Game Over Panel Shown");
-        Invoke("LoadMainMenu", 3f); // Schedule LoadMainMenu to be called after 3 seconds
-        //Debug.Log("Invoke LoadMainMenu scheduled");
+        gameOverPanel.SetActive(true); // Ensure this is correctly activating the Game Over UI
+        Debug.Log("Game Over. Showing Game Over panel.");
+        StartCoroutine(TransitionToMainMenu());
+    }
+
+    private IEnumerator TransitionToMainMenu()
+    {
+        yield return new WaitForSeconds(3); // Wait for 3 seconds to show the panel
+        LoadMainMenu();
     }
 
     public void LoadMainMenu()
     {
-        //Debug.Log("Attempting to load Main Menu.");
-        try
-        {
-            SceneManager.LoadScene("MainMenu");
-            //Debug.Log("Main Menu should now be loading.");
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError("Failed to load Main Menu: " + ex.Message);
-        }
+        SceneManager.LoadScene("MainMenu"); // Ensure this scene name is correct
+        Debug.Log("Transitioning to Main Menu.");
     }
+
 }

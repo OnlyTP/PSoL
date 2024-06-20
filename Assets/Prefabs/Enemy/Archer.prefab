@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.99, y: -4.9536, z: 0}
-  m_LocalScale: {x: 2.7, y: 2.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 4f35dc1967312a345ac32a7fd5bc5099, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5f437802b0e914a8f0cc04827f34a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 20
   currentHealth: 0
 --- !u!114 &3316427334629213234
 MonoBehaviour:
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.8
-  shootRadius: 10
+  shootRadius: 8
   arrow: {fileID: 6621808024458174776, guid: 884594488fcc8d54caf147ebc4e05bf0, type: 3}
   arrowSpeed: 15
 --- !u!95 &5166069492176108472

@@ -9,25 +9,41 @@ public class LevelLoader : MonoBehaviour
 
     private void Awake()
     {
-        int unlockedlevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        Debug.Log("Unlocked levels up to: " + unlockedLevel);
         for (int i = 0; i < buttons.Length; i++)
         {
-            buttons[i].interactable = false;
+            buttons[i].interactable = false;  // Ensure all are initially set to false
         }
-        for (int i = 0; i< unlockedlevel; i++)
+        for (int i = 0; i < unlockedLevel; i++)
         {
-            buttons[i].interactable = true;
+            if (i < buttons.Length)
+            {
+                buttons[i].interactable = true;  // Prevent accessing out of bounds index
+            }
         }
     }
 
+
     public void StartLevel(int levelId)
     {
+        PlayerStats playerStats = FindObjectOfType<PlayerStats>();  // Find the PlayerStats component in the scene
+        if (playerStats != null)
+        {
+            PlayerPrefs.SetInt("CurrentHealth", playerStats.maxHealth); // Reset health using the player's maxHealth
+        }
+        else
+        {
+            Debug.LogError("PlayerStats component not found in the scene.");
+        }
+
         string levelName = "Level" + levelId;
         SceneManager.LoadScene(levelName);
     }
+
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");  // Change "MainMenu" to your main menu scene's exact name
+        SceneManager.LoadScene("MainMenu"); 
     }
 
     public void QuitGame()

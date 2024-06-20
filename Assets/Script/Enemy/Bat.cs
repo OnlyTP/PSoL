@@ -21,6 +21,8 @@ public class Bat : MonoBehaviour
 
     private GameObject player;
     private Rigidbody2D rb;
+    private Animator animator;
+
 
     private float distanceToPlayer;
     private float distanceToHoverPosition;
@@ -37,7 +39,7 @@ public class Bat : MonoBehaviour
             Debug.Log("Player does not have player tag or doesn't exist");
 
         rb = GetComponent<Rigidbody2D>();
-
+        animator = GetComponent<Animator>();
         timeLeftTillDivebomb = timeAbovePlayerTillDivebomb;
     }
 
@@ -60,16 +62,18 @@ public class Bat : MonoBehaviour
         if (chasing && !diveBombing)
         {
             transform.position = Vector3.MoveTowards(transform.position, hoverPosition, stepSize);
+            animator.SetBool("isAttacking", false);  // Keep flying
         }
 
         if (diveBombing)
+        {
             Divebomb();
-        else
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
     private void Divebomb()
     {
+        animator.SetBool("isAttacking", true); // Begin attack animation
         float angle = Mathf.Atan2(player.transform.position.y - transform.position.y, player.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90f));
         Vector2 forceDirection = transform.up * divebombSpeed;
