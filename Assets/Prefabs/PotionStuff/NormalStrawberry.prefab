@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdfa9b585ad827499fe080fc4445687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDecay: 600
+  timeToDecay: 300
   decayedPrefab: {fileID: 5979576394491557303, guid: 8368b6ee8dcee694aa70c72ed617207b, type: 3}
 --- !u!61 &-5814342644595281575
 BoxCollider2D:

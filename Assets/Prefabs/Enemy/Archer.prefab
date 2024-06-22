@@ -190,7 +190,7 @@ MonoBehaviour:
   timeBetweenShots: 0.8
   shootRadius: 8
   arrow: {fileID: 6621808024458174776, guid: 884594488fcc8d54caf147ebc4e05bf0, type: 3}
-  arrowSpeed: 15
+  arrowSpeed: 10
 --- !u!95 &5166069492176108472
 Animator:
   serializedVersion: 5

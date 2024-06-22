@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -69,6 +68,8 @@ public class Bat : MonoBehaviour
         {
             Divebomb();
         }
+
+        FlipSprite();
     }
 
     private void Divebomb()
@@ -89,5 +90,17 @@ public class Bat : MonoBehaviour
         if (distanceToPlayer <= explosionRadius)
             player.GetComponent<PlayerStats>().TakeDamage(damage);
         Destroy(gameObject);
+    }
+
+    private void FlipSprite()
+    {
+        if (player.transform.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-1 * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);  // Flip sprite to face left
+        }
+        else
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);  // Normal orientation (facing right)
+        }
     }
 }

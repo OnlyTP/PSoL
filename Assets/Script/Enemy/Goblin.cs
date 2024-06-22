@@ -32,7 +32,7 @@ public class Goblin : MonoBehaviour
             {
                 // Move towards the player if within chase radius
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
-                anim.SetBool("isRunning", true); // Assuming you have a running animation
+                anim.SetBool("isRunning", true);
                 anim.SetBool("isIdle", false);
                 FlipSprite(); // Adjust sprite orientation based on player position
             }

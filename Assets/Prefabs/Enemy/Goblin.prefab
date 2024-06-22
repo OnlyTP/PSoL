@@ -138,7 +138,7 @@ MonoBehaviour:
   timeBetweenHits: 1.017
   movementSpeed: 5
   chaseRadius: 10
-  attackRadius: 3
+  attackRadius: 2
   damage: 10
 --- !u!95 &597028864316317056
 Animator:

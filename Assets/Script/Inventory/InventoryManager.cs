@@ -41,10 +41,10 @@ public class InventoryManager : MonoBehaviour
     // Call this method to add an item to the inventory
     public void AddItem(Item itemToAdd)
     {
-        if (items.Count < 20) // assuming a max of 20 items for now
+        if (items.Count < 20) 
         {
             items.Add(itemToAdd);
-            UpdateInventoryUI(); // Update the UI to reflect the added item
+            UpdateInventoryUI();
         }
     }
 

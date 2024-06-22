@@ -157,5 +157,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdfa9b585ad827499fe080fc4445687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDecay: 500
+  timeToDecay: 300
   decayedPrefab: {fileID: 799064390690626749, guid: aae2531d031195447bf42ea2db050d3d, type: 3}

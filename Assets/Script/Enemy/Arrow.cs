@@ -20,7 +20,7 @@ public class Arrow : MonoBehaviour
 
         if (distanceToPlayer <= 1.3f)
         {
-            player.gameObject.GetComponent<PlayerStats>().TakeDamage(10);
+            player.gameObject.GetComponent<PlayerStats>().TakeDamage(5);
             Destroy(gameObject);
         }
     }
